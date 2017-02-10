@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
   socket.on('createMessage', (newMessage, callback) => {
     console.log('create message', newMessage);
     io.emit('newMessage', generateMessage(newMessage.from, newMessage.text)); 
-    callback("This is from the server"); 
+    callback(); 
   }); 
 
   socket.on('createLocationMessage', (coords) => {
@@ -35,8 +35,6 @@ io.on('connection', (socket) => {
    });
 
 }); 
-
-
 
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`)
